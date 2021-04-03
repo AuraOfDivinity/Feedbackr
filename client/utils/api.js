@@ -23,7 +23,7 @@ export const dispatchError = dispatch => res => {
   dispatch(Notifications.error({
     title: `Error: ${res.status}`,
     message: res.body.message,
-    position: 'tr',
+    position: 'br',
     autoDismiss: 5,
   }));
 

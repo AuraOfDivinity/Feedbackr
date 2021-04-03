@@ -2,7 +2,7 @@ const express = require('express');
 const { requireAuth } = require('./middleware');
 const { Todo } = require('../database/schemas');
 
-const router   = express.Router();
+const router = express.Router();
 
 module.exports = router;
 
@@ -17,11 +17,9 @@ router.get('/', requireAuth, (req, res) => {
 });
 
 router.post('/', requireAuth, (req, res) => {
+  console.log(req.user)
   req.body.user = req.user.id;
-
   const newTodo = Todo(req.body);
-
-
   newTodo.save((err, savedTodo) => {
     if (err) {
       res.status(400).send({ message: 'Create todo failed', err });

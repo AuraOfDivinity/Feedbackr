@@ -1,6 +1,5 @@
 {
-  "name": "Feedbackr",
-  "version": "1",
+  "name": "feedbackr",
   "description": "A Feedback system",
   "main": "server/index.js",
   "scripts": {

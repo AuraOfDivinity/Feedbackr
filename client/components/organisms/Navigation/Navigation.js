@@ -55,6 +55,13 @@ export default function Navigation({ pathname }) {
     'is-active': isSettings,
   });
 
+  const ReportsItemClasses = classNames({
+    'navbar-item': true,
+    'is-tab': true,
+    'is-hidden-mobile': true,
+    // 'is-active': isSettings,
+  });
+
   return (
     <nav className="navbar is-fixed-top has-shadow" role="navigation">
       <div className="container">
@@ -106,9 +113,11 @@ export default function Navigation({ pathname }) {
                   New Questionnaire
                 </h6>
               </Link>
-              <h6 className="title is-6">
-                Reports
+              <Link>
+                <h6 className="title is-6" className={ReportsItemClasses}>
+                  Reports
                 </h6>
+              </Link>
               <Link to="/settings" className={settingsItemClasses}>
                 <h6 className="title is-6">
                   Settings

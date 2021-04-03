@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 const todoSchema = new Schema({
   user: { type: Schema.ObjectId, ref: 'User', required: true },
-  createdBy: { type: Schema.ObjectId, ref: 'User', required: true },
   text: { type: String },
   completed: { type: Boolean, default: false },
   created_at: { type: Date, default: Date.now, immutable: true },
@@ -16,7 +15,7 @@ const todoSchema = new Schema({
 
 todoSchema.plugin(immutablePlugin);
 
-todoSchema.methods.hide = function() {
+todoSchema.methods.hide = function () {
   return R.omit(['__v'], this.toObject());
 };
 
